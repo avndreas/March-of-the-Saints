@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc5x1pdxivu86"]
+
+[ext_resource type="PackedScene" uid="uid://b2dltxvlqt0ut" path="res://entities/player.tscn" id="1_5rabh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c1yfu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41dx2"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f1rjo"]
+size = Vector3(200, 1, 200)
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5rabh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994511, -4.23365)
+mesh = SubResource("BoxMesh_c1yfu")
+
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70619, -1.30449)
+mesh = SubResource("BoxMesh_c1yfu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.957286, 0.236959, 0.165694, -0.27542, 0.572832, 0.772015, 0.0880213, -0.784674, 0.613628, 0, 8.29163, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_41dx2")
+
+[node name="Floor" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_f1rjo")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56575, 3.29754, 0)
