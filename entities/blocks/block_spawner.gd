@@ -6,6 +6,8 @@ extends Node3D
 @onready var player: CharacterBody3D = $"../Player"
 @onready var blocks = [block1, block2, armisael]
 
+@export var enableBlocks : bool = true
+
 const XMIN = -50.0
 const ZMIN = -50.0
 const XMAX = 50.0
@@ -30,4 +32,6 @@ func _on_timer_timeout() -> void:
 	var randX = rng.randi_range(XMIN + playerPos.x, XMAX + playerPos.x)
 	var randZ = rng.randi_range(ZMIN + playerPos.z, ZMAX + playerPos.z)
 	block.translate(Vector3(randX, rng.randi_range(-16.0, 16.0), randZ))
-	get_parent().get_node("BlockSpawnerLocation").add_child(block)
+	if enableBlocks:
+		get_parent().get_node("BlockSpawnerLocation").add_child(block)
+	

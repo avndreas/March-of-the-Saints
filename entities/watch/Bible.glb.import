@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcsjyntllpi41"
-path="res://.godot/imported/Angel.glb-5deea1de8612d2869d944c93a7e35362.scn"
+uid="uid://dyqitnxhbbqb7"
+path="res://.godot/imported/Bible.glb-78264aea6b38ffdbe9c21f8e269bdcd0.scn"
 
 [deps]
 
-source_file="res://entities/angels/Angel.glb"
-dest_files=["res://.godot/imported/Angel.glb-5deea1de8612d2869d944c93a7e35362.scn"]
+source_file="res://entities/watch/Bible.glb"
+dest_files=["res://.godot/imported/Bible.glb-78264aea6b38ffdbe9c21f8e269bdcd0.scn"]
 
 [params]
 

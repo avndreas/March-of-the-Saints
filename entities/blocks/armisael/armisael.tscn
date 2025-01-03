@@ -19,6 +19,7 @@ size = Vector3(32, 16, 16)
 script = ExtResource("1_a13wd")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 2
 
 [node name="Armisael2" parent="RigidBody3D" instance=ExtResource("1_6limd")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)

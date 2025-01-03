@@ -24,6 +24,7 @@ Universe="*res://globals/universe/universe.tscn"
 folder_colors={
 "res://entities/": "red",
 "res://entities/blocks/": "orange",
+"res://entities/player/": "green",
 "res://entities/spikes/": "yellow",
 "res://globals/": "blue",
 "res://levels/": "purple",

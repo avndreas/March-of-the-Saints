@@ -7,7 +7,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("RigidBody3D").set_contact_monitor(true)
-	get_node("RigidBody3D").set_max_contacts_reported(10)
+	get_node("RigidBody3D").set_max_contacts_reported(100)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,8 +20,3 @@ func _on_rigid_body_3d_body_shape_entered(body_rid: RID, body: Node, body_shape_
 	elif body.name.match("Floor"):
 		await get_tree().create_timer(2.5).timeout 
 		queue_free() 
-	
-	
-
-
-	

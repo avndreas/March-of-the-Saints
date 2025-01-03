@@ -5,6 +5,23 @@ extends CharacterBody3D
 const SPEED = 8.0
 const SPRINT = 16.0
 const JUMP_VELOCITY = 16
+const MAX_FAITH = 777
+
+var faith
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	faith = MAX_FAITH
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("look_watch"):
+		if faith + 7 <= MAX_FAITH:
+			faith += 7
+	elif faith - 7 >= 0:
+		faith -= 7
+	
 
 
 func _physics_process(delta: float) -> void:
