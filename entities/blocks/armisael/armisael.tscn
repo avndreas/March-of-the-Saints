@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx7j5xxufije7"]
+
+[ext_resource type="PackedScene" uid="uid://c7l4e6cbgx11x" path="res://entities/blocks/armisael/Armisael.glb" id="1_6limd"]
+[ext_resource type="Script" path="res://entities/blocks/block.gd" id="1_a13wd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yrccn"]
+size = Vector3(16, 16, 64)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gd8sm"]
+size = Vector3(16, 16, 64)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugs7m"]
+size = Vector3(16, 16, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gw7xs"]
+size = Vector3(32, 16, 16)
+
+[node name="Armisael" type="Node3D"]
+script = ExtResource("1_a13wd")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="Armisael2" parent="RigidBody3D" instance=ExtResource("1_6limd")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+shape = SubResource("BoxShape3D_yrccn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -24)
+shape = SubResource("BoxShape3D_gd8sm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+shape = SubResource("BoxShape3D_ugs7m")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32)
+shape = SubResource("BoxShape3D_ugs7m")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 0, -16)
+shape = SubResource("BoxShape3D_ugs7m")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, -64)
+shape = SubResource("BoxShape3D_ugs7m")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+shape = SubResource("BoxShape3D_gw7xs")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
+shape = SubResource("BoxShape3D_gw7xs")
+
+[connection signal="body_shape_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_shape_entered"]

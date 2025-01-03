@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dc5x1pdxivu86"]
+
+[ext_resource type="PackedScene" uid="uid://b2dltxvlqt0ut" path="res://entities/player.tscn" id="1_5rabh"]
+[ext_resource type="PackedScene" uid="uid://dgijb1dn5pnem" path="res://entities/block_spawner.tscn" id="2_o3sg7"]
+[ext_resource type="Script" path="res://levels/block_spawner_location.gd" id="2_qsk85"]
+[ext_resource type="Script" path="res://levels/floor_rigid_body.gd" id="3_6el3t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c1yfu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41dx2"]
+size = Vector3(200, 1, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f1rjo"]
+size = Vector3(200, 1, 200)
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5rabh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994511, -4.23365)
+mesh = SubResource("BoxMesh_c1yfu")
+
+[node name="Cube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70619, -1.30449)
+mesh = SubResource("BoxMesh_c1yfu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.957286, 0.236959, 0.165694, -0.27542, 0.572832, 0.772015, 0.0880213, -0.784674, 0.613628, 0, 8.29163, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56575, 3.29754, 0)
+
+[node name="BlockSpawner" parent="." instance=ExtResource("2_o3sg7")]
+
+[node name="FloorRigidBody" type="RigidBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("3_6el3t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorRigidBody"]
+shape = SubResource("BoxShape3D_41dx2")
+
+[node name="Floor" type="MeshInstance3D" parent="FloorRigidBody/CollisionShape3D"]
+mesh = SubResource("BoxMesh_f1rjo")
+skeleton = NodePath("../../..")
+
+[node name="BlockSpawnerLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96.2274, 0)
+script = ExtResource("2_qsk85")
+
+[node name="Marker3D" type="Marker3D" parent="BlockSpawnerLocation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37569, -65.6138, 0)
+gizmo_extents = 3.0

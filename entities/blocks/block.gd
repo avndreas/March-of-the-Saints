@@ -1,0 +1,27 @@
+extends Node
+
+
+@onready var player: CharacterBody3D = $Player
+@onready var game_over = load("res://ui/main menu/GameOver.tscn")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	get_node("RigidBody3D").set_contact_monitor(true)
+	get_node("RigidBody3D").set_max_contacts_reported(10)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_rigid_body_3d_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	if body.name.match("Player"):
+		Universe.switch_scene(4)
+	else:
+		await get_tree().create_timer(2.5).timeout 
+		queue_free() 
+	
+	
+
+
+	

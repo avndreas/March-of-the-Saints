@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ybs72j611bwu"]
+
+[ext_resource type="Script" path="res://globals/universe/universe.gd" id="1_d1y0f"]
+
+[node name="Universe" type="Node3D"]
+script = ExtResource("1_d1y0f")
+
+[node name="TimerComponent" type="Timer" parent="."]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc5x1pdxivu86"]
+[gd_scene load_steps=10 format=3 uid="uid://dc5x1pdxivu86"]
 
 [ext_resource type="PackedScene" uid="uid://b2dltxvlqt0ut" path="res://entities/player.tscn" id="1_5rabh"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_c1yfu"]
+[ext_resource type="PackedScene" uid="uid://dgijb1dn5pnem" path="res://entities/block_spawner.tscn" id="2_o3sg7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_41dx2"]
 size = Vector3(200, 1, 200)
@@ -10,10 +9,52 @@ size = Vector3(200, 1, 200)
 [sub_resource type="BoxMesh" id="BoxMesh_f1rjo"]
 size = Vector3(200, 1, 200)
 
+[sub_resource type="BoxMesh" id="BoxMesh_c1yfu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cvwou"]
+sky_top_color = Color(0.125347, 0.373532, 0.702771, 1)
+sky_horizon_color = Color(0.682445, 0.769326, 0.824697, 1)
+sky_energy_multiplier = 1.35
+
+[sub_resource type="Sky" id="Sky_e5opn"]
+sky_material = SubResource("ProceduralSkyMaterial_cvwou")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_b2sct"]
+background_mode = 2
+background_energy_multiplier = 1.35
+sky = SubResource("Sky_e5opn")
+ambient_light_source = 3
+ambient_light_color = Color(0.546595, 0.914218, 0.986374, 1)
+
+[sub_resource type="GDScript" id="GDScript_w71wf"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="TestLevel" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5rabh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/StaticBody3D"]
+shape = SubResource("BoxShape3D_41dx2")
+
+[node name="Floor" type="MeshInstance3D" parent="Player/StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_f1rjo")
+skeleton = NodePath("../../../..")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994511, -4.23365)
@@ -26,14 +67,18 @@ mesh = SubResource("BoxMesh_c1yfu")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.957286, 0.236959, 0.165694, -0.27542, 0.572832, 0.772015, 0.0880213, -0.784674, 0.613628, 0, 8.29163, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_41dx2")
-
-[node name="Floor" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_f1rjo")
-skeleton = NodePath("../../..")
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56575, 3.29754, 0)
+
+[node name="BlockSpawner" parent="." instance=ExtResource("2_o3sg7")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b2sct")
+
+[node name="BlockSpawnerLocation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+script = SubResource("GDScript_w71wf")
+
+[node name="Marker3D" type="Marker3D" parent="BlockSpawnerLocation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37569, -65.6138, 0)
+gizmo_extents = 3.0
