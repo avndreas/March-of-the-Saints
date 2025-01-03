@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d45mm6v6w32n"]
+
+[ext_resource type="PackedScene" uid="uid://dfq7ab6kjcuuo" path="res://entities/angels/Angel.glb" id="1_kvoud"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pu1pl"]
+size = Vector3(2.8, 3.025, 1)
+
+[node name="Angel" type="Node3D"]
+
+[node name="Angel2" parent="." instance=ExtResource("1_kvoud")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Angel2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Angel2/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51257, 0)
+shape = SubResource("BoxShape3D_pu1pl")

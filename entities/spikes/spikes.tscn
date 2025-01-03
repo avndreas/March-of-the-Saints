@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://56m5ef5vg1v"]
+
+[ext_resource type="Script" path="res://entities/spikes/spikes.gd" id="1_gb851"]
+[ext_resource type="Material" uid="uid://e5gkjyfapdpa" path="res://entities/spikes/spike_texture.tres" id="2_rqm2y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ts6kk"]
+size = Vector3(6, 0.557, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yuvm0"]
+size = Vector3(6, 0.09, 3)
+
+[node name="Spikes" type="Node3D"]
+script = ExtResource("1_gb851")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177622, 0)
+shape = SubResource("BoxShape3D_ts6kk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_yuvm0")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_rqm2y")
+
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

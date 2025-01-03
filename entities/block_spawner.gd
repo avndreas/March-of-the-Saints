@@ -29,5 +29,5 @@ func _on_timer_timeout() -> void:
 	
 	var randX = rng.randi_range(XMIN + playerPos.x, XMAX + playerPos.x)
 	var randZ = rng.randi_range(ZMIN + playerPos.z, ZMAX + playerPos.z)
-	block.translate(Vector3(randX, 0.0, randZ))
+	block.translate(Vector3(randX, rng.randi_range(-16.0, 16.0), randZ))
 	get_parent().get_node("BlockSpawnerLocation").add_child(block)

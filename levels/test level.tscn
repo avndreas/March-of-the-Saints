@@ -1,15 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dc5x1pdxivu86"]
+[gd_scene load_steps=11 format=3 uid="uid://dc5x1pdxivu86"]
 
 [ext_resource type="PackedScene" uid="uid://b2dltxvlqt0ut" path="res://entities/player.tscn" id="1_5rabh"]
 [ext_resource type="PackedScene" uid="uid://dgijb1dn5pnem" path="res://entities/block_spawner.tscn" id="2_o3sg7"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_41dx2"]
-size = Vector3(200, 1, 200)
-
-[sub_resource type="BoxMesh" id="BoxMesh_f1rjo"]
-size = Vector3(200, 1, 200)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c1yfu"]
+[ext_resource type="PackedScene" uid="uid://56m5ef5vg1v" path="res://entities/spikes/spikes.tscn" id="3_603vj"]
+[ext_resource type="PackedScene" uid="uid://d45mm6v6w32n" path="res://entities/angels/angel.tscn" id="4_qylua"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cvwou"]
 sky_top_color = Color(0.125347, 0.373532, 0.702771, 1)
@@ -26,6 +20,8 @@ background_energy_multiplier = 1.35
 sky = SubResource("Sky_e5opn")
 ambient_light_source = 3
 ambient_light_color = Color(0.546595, 0.914218, 0.986374, 1)
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
 
 [sub_resource type="GDScript" id="GDScript_w71wf"]
 script/source = "extends Node3D
@@ -41,34 +37,19 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_41dx2"]
+size = Vector3(200, 1, 3500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f1rjo"]
+size = Vector3(200, 1, 3500)
+
 [node name="TestLevel" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5rabh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/StaticBody3D"]
-shape = SubResource("BoxShape3D_41dx2")
-
-[node name="Floor" type="MeshInstance3D" parent="Player/StaticBody3D/CollisionShape3D"]
-mesh = SubResource("BoxMesh_f1rjo")
-skeleton = NodePath("../../../..")
-
-[node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994511, -4.23365)
-mesh = SubResource("BoxMesh_c1yfu")
-
-[node name="Cube2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70619, -1.30449)
-mesh = SubResource("BoxMesh_c1yfu")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.957286, 0.236959, 0.165694, -0.27542, 0.572832, 0.772015, 0.0880213, -0.784674, 0.613628, 0, 8.29163, 0)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56575, 3.29754, 0)
+transform = Transform3D(0.972329, 0.201506, 0.1182, -0.216397, 0.586244, 0.780699, 0.0880213, -0.784674, 0.613627, 0, 8.29163, 0)
 
 [node name="BlockSpawner" parent="." instance=ExtResource("2_o3sg7")]
 
@@ -82,3 +63,30 @@ script = SubResource("GDScript_w71wf")
 [node name="Marker3D" type="Marker3D" parent="BlockSpawnerLocation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37569, -65.6138, 0)
 gizmo_extents = 3.0
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1650)
+shape = SubResource("BoxShape3D_41dx2")
+
+[node name="Floor" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
+mesh = SubResource("BoxMesh_f1rjo")
+skeleton = NodePath("../../..")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Spikes" parent="Node3D" instance=ExtResource("3_603vj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27847, 0.5, -8.13)
+
+[node name="Spikes2" parent="Node3D" instance=ExtResource("3_603vj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72153, 0.5, -8.13)
+
+[node name="Spikes3" parent="Node3D" instance=ExtResource("3_603vj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72153, 0.5, -8.13)
+
+[node name="Spikes4" parent="Node3D" instance=ExtResource("3_603vj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7215, 0.5, -8.13)
+
+[node name="Angel" parent="." instance=ExtResource("4_qylua")]
+transform = Transform3D(0.0121646, 0, 0.999926, 0, 1, 0, -0.999926, 0, 0.0121646, -6.23786, 0.5, -0.244995)

@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func _on_rigid_body_3d_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	if body.name.match("Player"):
 		Universe.switch_scene(4)
-	else:
+	elif body.name.match("Floor"):
 		await get_tree().create_timer(2.5).timeout 
 		queue_free() 
 	
