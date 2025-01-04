@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/player/character_body_3d.gd" id="1_35j7g"]
 [ext_resource type="Script" path="res://entities/player/head.gd" id="2_0jefw"]
-[ext_resource type="PackedScene" uid="uid://dthuqaulr1go4" path="res://entities/watch/watch.tscn" id="3_7hxis"]
+[ext_resource type="PackedScene" uid="uid://dthuqaulr1go4" path="res://entities/bible/bible.tscn" id="3_7hxis"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rhd7d"]
 height = 2.4
@@ -28,5 +28,5 @@ script = ExtResource("2_0jefw")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
-[node name="Watch" parent="." instance=ExtResource("3_7hxis")]
-transform = Transform3D(0.900806, -0.353439, -0.252249, -0.0092257, 0.565212, -0.824894, 0.434124, 0.745397, 0.505885, 0.23296, 1.59561, -0.447761)
+[node name="Bible" parent="." instance=ExtResource("3_7hxis")]
+transform = Transform3D(0.900607, -0.354061, -0.252087, -0.00887412, 0.564897, -0.825113, 0.434544, 0.74534, 0.505608, 0.23296, 1.59561, -0.447761)

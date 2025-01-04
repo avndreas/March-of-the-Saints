@@ -3,11 +3,14 @@ extends Node
 
 @onready var player: CharacterBody3D = $Player
 @onready var game_over = load("res://ui/main menu/GameOver.tscn")
+@onready var timer : Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("RigidBody3D").set_contact_monitor(true)
 	get_node("RigidBody3D").set_max_contacts_reported(100)
+	await get_tree().create_timer(5).timeout
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

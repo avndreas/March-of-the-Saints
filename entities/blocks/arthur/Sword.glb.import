@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dyqitnxhbbqb7"
-path="res://.godot/imported/Bible.glb-78264aea6b38ffdbe9c21f8e269bdcd0.scn"
+uid="uid://dxykytejed2fy"
+path="res://.godot/imported/Sword.glb-1e3d7d1f76fae291369bd7f494d7aae8.scn"
 
 [deps]
 
-source_file="res://entities/watch/Bible.glb"
-dest_files=["res://.godot/imported/Bible.glb-78264aea6b38ffdbe9c21f8e269bdcd0.scn"]
+source_file="res://entities/blocks/arthur/Sword.glb"
+dest_files=["res://.godot/imported/Sword.glb-1e3d7d1f76fae291369bd7f494d7aae8.scn"]
 
 [params]
 

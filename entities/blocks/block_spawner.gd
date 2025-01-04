@@ -3,8 +3,10 @@ extends Node3D
 @onready var block1 = preload("res://entities/blocks/block_1/block_1.tscn")
 @onready var block2 = preload("res://entities/blocks/block_2/block_2.tscn")
 @onready var armisael = preload("res://entities/blocks/armisael/armisael.tscn")
+@onready var arthur = preload("res://entities/blocks/arthur/arthur.tscn")
 @onready var player: CharacterBody3D = $"../Player"
-@onready var blocks = [block1, block2, armisael]
+@onready var blocks = [block1, block2, armisael, arthur]
+#@onready var blocks = [arthur]
 
 @export var enableBlocks : bool = true
 

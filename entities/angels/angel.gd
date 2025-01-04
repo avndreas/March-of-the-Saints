@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	angel.translate(Vector3(30.0 * delta , 0.0, 0.0))
+	angel.translate(Vector3(60.0 * delta , 0.0, 0.0))
 
 
 func _on_timer_timeout() -> void:

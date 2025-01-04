@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dthuqaulr1go4"]
+
+[ext_resource type="PackedScene" uid="uid://dyqitnxhbbqb7" path="res://entities/bible/Bible.glb" id="1_gxyt4"]
+
+[node name="Bible" type="Node3D"]
+
+[node name="Bible" parent="." instance=ExtResource("1_gxyt4")]

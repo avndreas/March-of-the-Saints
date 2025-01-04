@@ -1,18 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://d45mm6v6w32n"]
+[gd_scene load_steps=5 format=3 uid="uid://c602g50xu1bfs"]
 
 [ext_resource type="Script" path="res://entities/angels/angel.gd" id="1_5juxr"]
 [ext_resource type="PackedScene" uid="uid://dcsjyntllpi41" path="res://entities/angels/Angel.glb" id="1_kvoud"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pu1pl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gbtu"]
+emission_enabled = true
+emission = Color(0.983686, 0.990243, 0.867438, 1)
+emission_energy_multiplier = 0.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nag8"]
 size = Vector3(3.6, 3.456, 0.756)
 
-[node name="Angel" type="Node3D"]
+[node name="Angel" instance=ExtResource("1_kvoud")]
 script = ExtResource("1_5juxr")
 
-[node name="Angel2" parent="." instance=ExtResource("1_kvoud")]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0, 0, 0)
+[node name="Angel" parent="." index="0"]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_8gbtu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Angel2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Angel" index="0"]
 collision_layer = 4
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -21,11 +27,11 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Angel2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Angel/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72806, 0.121826)
-shape = SubResource("BoxShape3D_pu1pl")
+shape = SubResource("BoxShape3D_4nag8")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." index="1"]
 wait_time = 10.0
 autostart = true
 

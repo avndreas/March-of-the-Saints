@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cagdqxi4jar3s"
+path="res://.godot/imported/spiketile.obj-3c9efdd30975de34e1fd53b2b0193bcd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spiketile.obj-3c9efdd30975de34e1fd53b2b0193bcd.mesh"]
+
+source_file="res://entities/spikes/spiketile.obj"
+dest_files=["res://.godot/imported/spiketile.obj-3c9efdd30975de34e1fd53b2b0193bcd.mesh", "res://.godot/imported/spiketile.obj-3c9efdd30975de34e1fd53b2b0193bcd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

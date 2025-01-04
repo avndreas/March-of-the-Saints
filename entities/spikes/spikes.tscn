@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://56m5ef5vg1v"]
+[gd_scene load_steps=9 format=3 uid="uid://56m5ef5vg1v"]
 
 [ext_resource type="Script" path="res://entities/spikes/spikes.gd" id="1_gb851"]
 [ext_resource type="Material" uid="uid://e5gkjyfapdpa" path="res://entities/spikes/spike_texture.tres" id="2_rqm2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ts6kk"]
-size = Vector3(6, 0.557, 3)
+size = Vector3(3, 0.557, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yuvm0"]
-size = Vector3(6, 0.09, 3)
+size = Vector3(3, 0.09, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pj075"]
+material = ExtResource("2_rqm2y")
+size = Vector3(0.25, 0.92, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eagx0"]
+material = ExtResource("2_rqm2y")
+size = Vector3(0.2, 0.6, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a077q"]
+material = ExtResource("2_rqm2y")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pdhps"]
+material = ExtResource("2_rqm2y")
+size = Vector3(0.9, 0.055, 0.33)
 
 [node name="Spikes" type="Node3D"]
 script = ExtResource("1_gb851")
@@ -22,6 +38,94 @@ shape = SubResource("BoxShape3D_ts6kk")
 mesh = SubResource("BoxMesh_yuvm0")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_rqm2y")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0949578, 0.490664, 0.75861)
+mesh = SubResource("BoxMesh_pj075")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57299, 0.490664, -0.256525)
+mesh = SubResource("BoxMesh_pj075")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975736, 0.336992, -0.177494)
+mesh = SubResource("BoxMesh_eagx0")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.827328, 0.336992, 0.368351)
+mesh = SubResource("BoxMesh_eagx0")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10806, 0.336992, -0.709047)
+mesh = SubResource("BoxMesh_eagx0")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45595, 0.336992, 1.17357)
+mesh = SubResource("BoxMesh_eagx0")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259338, 0.336992, -0.921927)
+mesh = SubResource("BoxMesh_eagx0")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.591195, 0.336992, -1.40972)
+mesh = SubResource("BoxMesh_eagx0")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.733623, -0.679557, 2.6646e-08, -0.494384, -0.533718, 0.686098, -0.466242, -0.503337, -0.727509, -0.0188785, -0.000108063, 0)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.733623, -0.679557, 2.6646e-08, -0.494384, -0.533718, 0.686098, -0.466242, -0.503337, -0.727509, -0.949527, -0.000108063, 0.963398)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.671687, 0.266439, 0.691264, -0.494384, -0.533718, 0.686098, 0.551743, -0.802593, -0.226768, 1.40397, -0.000108063, 0.253937)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.86921, -0.310502, 0.384789, -0.494384, -0.533718, 0.686098, -0.00766644, -0.786597, -0.61742, 1.7091, -0.000108063, -0.688453)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.153118, -0.830433, -0.535664, -0.494384, -0.533718, 0.686098, -0.855652, 0.159769, -0.492275, 0.316513, 0.0159405, -0.384064)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-0.159978, -0.719955, -0.675331, -0.494384, -0.533718, 0.686098, -0.854396, 0.443633, -0.270551, -1.58927, 0.0159407, 0.0266723)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-0.66519, -0.275807, -0.693868, -0.494384, -0.533718, 0.686098, -0.55956, 0.799423, 0.218669, 0.291026, 0.0159402, 0.892119)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-0.461225, -0.507963, -0.727492, -0.494384, -0.533718, 0.686098, -0.736788, 0.676106, -0.00496456, -0.373544, 0.0159402, -1.3335)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.398054, -0.840688, -0.367147, -0.494384, -0.533718, 0.686098, -0.772747, -0.0915924, -0.628071, 1.13423, 0.0159402, -1.52989)
+mesh = SubResource("BoxMesh_a077q")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.45054, -0.013253, 1.35124)
+mesh = SubResource("BoxMesh_pdhps")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268327, -0.0132532, 1.45271)
+mesh = SubResource("BoxMesh_pdhps")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45307, -0.0132532, -1.44632)
+mesh = SubResource("BoxMesh_pdhps")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00474, -0.0132532, -1.6036)
+mesh = SubResource("BoxMesh_pdhps")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84876, -0.0132532, -1.4446)
+mesh = SubResource("BoxMesh_pdhps")
 
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
 [connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

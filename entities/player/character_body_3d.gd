@@ -1,26 +1,36 @@
 extends CharacterBody3D
 
 @onready var player: Node3D = $".."
+@onready var bible: Node3D = $Bible
+@onready var directional_light_3d: DirectionalLight3D = $"../DirectionalLight3D"
+@onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
+@onready var faith : float
 
 const SPEED = 8.0
 const SPRINT = 16.0
 const JUMP_VELOCITY = 16
-const MAX_FAITH = 777
+const MAX_FAITH = 777.77
 
-var faith
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	bible.visible = false
 	faith = MAX_FAITH
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("look_watch"):
-		if faith + 7 <= MAX_FAITH:
-			faith += 7
-	elif faith - 7 >= 0:
-		faith -= 7
+	if Input.is_action_pressed("look_bible"):
+		bible.visible = true
+		if faith + 3.3 <= MAX_FAITH:
+			faith += 3.3
+	elif faith - 0.33 >= 0:
+		faith -= 0.33
+	
+	if Input.is_action_just_released("look_bible"):
+		bible.visible = false
+	
 	
 
 
@@ -52,3 +62,9 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+
+func get_faith() -> int:
+	return faith
+
+func get_max_faith() -> int:
+	return MAX_FAITH

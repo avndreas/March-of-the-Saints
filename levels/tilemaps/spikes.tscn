@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgwdgbh6jj7sv"]
+
+[ext_resource type="PackedScene" uid="uid://d27nisgsdq3gm" path="res://entities/spikes/spike_tile.tscn" id="1_s1yfj"]
+
+[node name="Spikes" type="Node3D"]
+
+[node name="SpikeTile" parent="." instance=ExtResource("1_s1yfj")]

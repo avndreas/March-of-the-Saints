@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://2vdd63qncrk"]
+
+[ext_resource type="Script" path="res://entities/spikes/spikes.gd" id="1_88hj4"]
+[ext_resource type="ArrayMesh" uid="uid://cagdqxi4jar3s" path="res://entities/spikes/spiketile.obj" id="1_owdk6"]
+[ext_resource type="Material" uid="uid://e5gkjyfapdpa" path="res://entities/spikes/spike_texture.tres" id="2_rah2k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3asd"]
+size = Vector3(3, 0.327759, 3)
+
+[node name="Obj-spiketile" type="Node3D"]
+script = ExtResource("1_88hj4")
+
+[node name="Spiketile" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_owdk6")
+surface_material_override/0 = ExtResource("2_rah2k")
+
+[node name="Area3D" type="Area3D" parent="Spiketile"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spiketile/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0164185, 0)
+shape = SubResource("BoxShape3D_b3asd")
+
+[connection signal="body_shape_entered" from="Spiketile/Area3D" to="." method="_on_area_3d_body_shape_entered"]
