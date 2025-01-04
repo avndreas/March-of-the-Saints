@@ -15,7 +15,7 @@ size = Vector3(3.6, 3.456, 0.756)
 script = ExtResource("1_5juxr")
 
 [node name="Angel" parent="." index="0"]
-transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, 0, 0, 0)
+transform = Transform3D(-1.74846e-07, 0, 4, 0, 4, 0, -4, 0, -1.74846e-07, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_8gbtu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Angel" index="0"]

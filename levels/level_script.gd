@@ -20,6 +20,6 @@ func _process(delta: float) -> void:
 	world_environment.environment.set_bg_energy_multiplier(1.0 * faith / max_faith)
 	world_environment.environment.set_tonemap_exposure(1.0 * faith / max_faith)
 	world_environment.environment.set_fog_sky_affect(1.0 * faith / max_faith)
-	#world_environment.environment.set_fog_density(1.0 - (1.0 * faith / max_faith))
+	world_environment.environment.set_fog_density(1.0 - (1.0 * faith / max_faith))
 	directional_light_3d.light_energy = 1.0 * faith / max_faith
 	print(faith)
