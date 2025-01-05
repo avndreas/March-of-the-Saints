@@ -4,12 +4,14 @@ extends Node3D
 @onready var block2 = preload("res://entities/blocks/block_2/block_2.tscn")
 @onready var armisael = preload("res://entities/blocks/armisael/armisael.tscn")
 @onready var arthur = preload("res://entities/blocks/arthur/arthur.tscn")
+@onready var brainage = preload("res://entities/blocks/brainage/BrainAge.tscn")
+@onready var master = preload("res://entities/blocks/master/Master.tscn")
 @onready var player: CharacterBody3D = $"../Player"
 @onready var blocks_0 = [block1, block2]
 @onready var blocks_1 = [block1, block2, armisael]
-@onready var blocks_2 = [armisael, arthur]
-@onready var blocks_3 = [block1, block2, armisael]
-@onready var blocks_4 = []
+@onready var blocks_2 = [armisael, arthur, master]
+@onready var blocks_3 = [block1, block2, armisael, master, brainage]
+#@onready var blocks_4 = []
 @onready var test_level: Node3D = $".."
 @onready var spawn_timer: Timer = $SpawnTimer
 
@@ -51,7 +53,7 @@ func _process(delta: float) -> void:
 			current_pool = blocks_3
 		else:
 			enableBlocks = false
-			current_pool = blocks_4
+			#current_pool = blocks_4
 
 
 func _on_timer_timeout() -> void:

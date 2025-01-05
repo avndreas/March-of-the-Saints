@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwnnkykxokpd6"]
+[gd_scene load_steps=9 format=3 uid="uid://dwnnkykxokpd6"]
 
+[ext_resource type="PackedScene" uid="uid://dxykytejed2fy" path="res://entities/blocks/arthur/Sword.glb" id="2_0us2h"]
 [ext_resource type="PackedScene" uid="uid://jy7jx2xayf14" path="res://ui/main menu/MainMenu.tscn" id="2_cnyu2"]
-[ext_resource type="Script" path="res://ui/main menu/main_menu.gd" id="2_vr1yw"]
+[ext_resource type="PackedScene" uid="uid://b4egbxlkcyr1g" path="res://entities/blocks/master/Master.glb" id="3_e206m"]
+[ext_resource type="PackedScene" uid="uid://d2d7u2hvvyqgh" path="res://entities/blocks/brainage/BrainAge.glb" id="4_hk6r5"]
+[ext_resource type="PackedScene" uid="uid://c7l4e6cbgx11x" path="res://entities/blocks/armisael/Armisael.glb" id="5_32py6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kyrjf"]
 
@@ -22,10 +25,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.406, 8.927)
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
 [node name="MainMenu" parent="Camera3D/CanvasLayer" instance=ExtResource("2_cnyu2")]
-script = ExtResource("2_vr1yw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gsc5b")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.893701, 0.393194, -0.216097, -0.448664, 0.783208, -0.430448, 0, 0.481647, 0.876366, 0, 88.4722, 0)
+light_energy = 0.235
+
+[node name="Sword2" parent="." instance=ExtResource("2_0us2h")]
+transform = Transform3D(28.1736, 30.3418, 0, -30.3418, 28.1736, 0, 0, 0, 41.405, 23.8179, -375.925, -671.574)
+
+[node name="Master" parent="." instance=ExtResource("3_e206m")]
+transform = Transform3D(9.60961, -10.5597, -26.0829, 12.1748, -23.2883, 13.9139, -25.3692, -15.1761, -3.20258, -603.767, 230.777, -677.652)
+
+[node name="BrainAge" parent="." instance=ExtResource("4_hk6r5")]
+transform = Transform3D(133.369, 218.828, -6.70641, -43.682, 18.9029, -251.898, -214.529, 132.193, 47.1217, -12.374, 457.344, -716.239)
+
+[node name="Armisael2" parent="." instance=ExtResource("5_32py6")]
+transform = Transform3D(22.2025, 0.713349, 7.98348, -8.01529, 1.97599, 22.1144, 0, -23.5113, 2.10081, 141.797, 244.63, -1497.1)

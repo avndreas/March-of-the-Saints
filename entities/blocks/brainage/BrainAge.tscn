@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckygloa2b3ypc"]
+
+[ext_resource type="Script" path="res://entities/blocks/block.gd" id="1_b0vs6"]
+[ext_resource type="PackedScene" uid="uid://d2d7u2hvvyqgh" path="res://entities/blocks/brainage/BrainAge.glb" id="2_jogqx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0t4wp"]
+size = Vector3(20.775, 14.1484, 44.191)
+
+[node name="Armisael" type="Node3D"]
+script = ExtResource("1_b0vs6")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 2
+
+[node name="BrainAge" parent="RigidBody3D" instance=ExtResource("2_jogqx")]
+transform = Transform3D(16, 0, 0, 0, -6.99382e-07, -16, 0, 16, -6.99382e-07, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.96781, 2.8378)
+shape = SubResource("BoxShape3D_0t4wp")
+
+[connection signal="body_shape_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_shape_entered"]
