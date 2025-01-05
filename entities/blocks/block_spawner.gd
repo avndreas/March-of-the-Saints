@@ -20,9 +20,9 @@ var current_pool = blocks_0
 var current_level = 0
 
 const XMIN = -50.0
-const ZMIN = -50.0
+const ZMIN = -150.0
 const XMAX = 50.0
-const ZMAX = 50.0
+const ZMAX = 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,13 +36,17 @@ func _process(delta: float) -> void:
 	if lvl != current_level:
 		current_level = lvl
 		if current_level == 0:
+			enableBlocks = true
 			current_pool = blocks_0
 		elif current_level == 1:
+			enableBlocks = true
 			current_pool = blocks_1
 		elif current_level == 2:
-			spawn_timer.start(2.5)
+			enableBlocks = true
+			spawn_timer.start(1.5)
 			current_pool = blocks_2
 		elif current_level == 3:
+			enableBlocks = true
 			spawn_timer.start(2.0)
 			current_pool = blocks_3
 		else:
@@ -60,6 +64,7 @@ func _on_timer_timeout() -> void:
 		var randX = rng.randi_range(XMIN + playerPos.x, XMAX + playerPos.x)
 		var randZ = rng.randi_range(ZMIN + playerPos.z, ZMAX + playerPos.z)
 		block.translate(Vector3(randX, rng.randi_range(-16.0, 16.0), randZ))
+		await get_tree().create_timer(rng.randf_range(0.0, 3.0)).timeout
 		get_parent().get_node("BlockSpawnerLocation").add_child(block)
 
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dc5x1pdxivu86"]
+[gd_scene load_steps=21 format=3 uid="uid://dc5x1pdxivu86"]
 
 [ext_resource type="PackedScene" uid="uid://b2dltxvlqt0ut" path="res://entities/player/player.tscn" id="1_5rabh"]
 [ext_resource type="Script" path="res://levels/level_script.gd" id="1_epxtb"]
@@ -49,7 +49,7 @@ size = Vector3(200, 1, 3500)
 
 [sub_resource type="Curve3D" id="Curve3D_mhpvy"]
 _data = {
-"points": PackedVector3Array(-96.4215, 78.0552, 4.90527, 96.4215, -78.0552, -4.90527, 25.0405, 989.978, 8.82007, -103.841, 180.242, 51.2344, 103.841, -180.242, -51.2344, 98.4515, 432.992, -642.764, -99.6296, 41.3547, -295.549, 99.6296, -41.3547, 295.549, 698.991, 460.71, 409.265, 306.53, -9.98036, 179.73, -306.53, 9.98036, -179.73, -12.4401, 14.9473, 767.556, -96.7912, -124.17, 79.05, 96.7912, 124.17, -79.05, -289.238, 999.373, 114.193, -86.6524, 93.3431, -26.8464, 86.6524, -93.3431, 26.8464, -27.0561, 1087.71, -16.9863, -19.0984, 63.8751, 12.9053, 19.0984, -63.8751, -12.9053, 25.0405, 989.978, 8.82007),
+"points": PackedVector3Array(-96.4215, 78.0552, 4.90527, 96.4215, -78.0552, -4.90527, 25.0405, 989.978, 8.82007, -103.841, 180.242, 51.2344, 103.841, -180.242, -51.2344, 98.4515, 432.992, -642.764, -99.6296, 41.3547, -295.549, 99.6296, -41.3547, 295.549, 698.991, 460.71, 409.265, 399.591, -26.556, 276.372, -399.591, 26.556, -276.372, -13.1623, 36.6461, 720.792, -260.275, -424.39, 33.0991, 260.275, 424.39, -33.0991, -326.611, 617.547, 43.8284, -86.6524, 93.3431, -26.8464, 86.6524, -93.3431, 26.8464, -27.0561, 1087.71, -16.9863, -19.0984, 63.8751, 12.9053, 19.0984, -63.8751, -12.9053, 25.0405, 989.978, 8.82007),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
@@ -77,16 +77,19 @@ point_count = 7
 
 [sub_resource type="Curve3D" id="Curve3D_uqqhx"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -451.019, 1181.02, -61.8838, 82.0251, 48.1815, -1266.67, -82.0251, -48.1815, 1266.67, -246.007, 767.86, 1001.61, 42.2696, 266.363, 565.922, -42.2696, -266.363, -565.922, -7.53296, 134.318, 1438.04, 158.137, -210.912, 83.3613, -158.137, 210.912, -83.3613, 32.2567, 432.919, -566.409, 16.347, -226.996, -216.544, -16.347, 226.996, 216.544, -428.485, 994.636, -485.553, 0, 0, 0, 0, 0, 0, -451.019, 1181.02, -61.8838),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -451.019, 1181.02, -61.8838, 82.0251, 48.1815, -1266.67, -82.0251, -48.1815, 1266.67, -246.007, 767.86, 1001.61, 42.2696, 266.363, 565.922, -42.2696, -266.363, -565.922, -7.53296, 134.318, 1438.04, 182.65, -475.356, -205.215, -182.65, 475.356, 205.215, 32.2567, 432.919, -566.409, 16.347, -226.996, -216.544, -16.347, 226.996, 216.544, -428.485, 994.636, -485.553, 0, 0, 0, 0, 0, 0, -451.019, 1181.02, -61.8838),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3hjl"]
+size = Vector3(135.005, 545.237, 12.99)
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_epxtb")
 
 [node name="Player" parent="." instance=ExtResource("1_5rabh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="BlockSpawner" parent="." instance=ExtResource("2_o3sg7")]
 
@@ -18599,10 +18602,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3366.58)
 curve = SubResource("Curve3D_mhpvy")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path1"]
-transform = Transform3D(0.0508029, 0.627837, -0.776574, 0, 0.777574, 0.628653, 0.998618, -0.0319401, 0.0395068, 25.0405, 989.978, 8.82007)
+transform = Transform3D(0.0508024, 0.627833, -0.776571, 0, 0.777569, 0.62865, 0.998609, -0.0319399, 0.0395066, 25.0405, 989.978, 8.82007)
 
 [node name="Arthur" parent="Arch/Path1/PathFollow3D" instance=ExtResource("8_grxnf")]
-transform = Transform3D(-0.0508078, -2.5361e-08, 0.998714, -0.627896, -0.777647, -0.0319431, 0.776642, -0.628708, 0.0395103, -1.42798, 242.559, 192.633)
+transform = Transform3D(0.0914772, -0.113761, 0.989293, -0.627656, -0.777862, -0.0314109, 0.773103, -0.618059, -0.142559, -1.42798, 242.559, 192.633)
 
 [node name="Path2" type="Path3D" parent="Arch"]
 curve = SubResource("Curve3D_fwwas")
@@ -18627,7 +18630,7 @@ transform = Transform3D(0.62207, 0.61638, 0.482811, 0.627538, -0.761264, 0.16332
 curve = SubResource("Curve3D_ijcxt")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path4"]
-transform = Transform3D(0.964698, 0, -0.2631, 0, 0.999929, 0, 0.2631, 0, 0.964698, -557.11, 604.947, 143.47)
+transform = Transform3D(0.964698, 0, -0.263099, 0, 0.999928, 0, 0.2631, 0, 0.964696, -557.11, 604.947, 143.47)
 
 [node name="Arthur4" parent="Arch/Path4/PathFollow3D" instance=ExtResource("8_grxnf")]
 transform = Transform3D(-0.626812, 0.779163, 0.00398098, -0.711577, -0.570342, -0.410326, -0.317441, -0.260029, 0.911936, -268.336, 160.606, 100.856)
@@ -18636,7 +18639,15 @@ transform = Transform3D(-0.626812, 0.779163, 0.00398098, -0.711577, -0.570342, -
 curve = SubResource("Curve3D_uqqhx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path5"]
-transform = Transform3D(-0.981826, 0.0674646, -0.176855, 0, 0.93432, 0.356413, 0.189269, 0.34997, -0.917428, -451.019, 1181.02, -61.8838)
+transform = Transform3D(-0.98182, 0.0674641, -0.176854, 0, 0.934313, 0.356411, 0.189268, 0.349967, -0.917423, -451.019, 1181.02, -61.8838)
 
 [node name="Arthur5" parent="Arch/Path5/PathFollow3D" instance=ExtResource("8_grxnf")]
 transform = Transform3D(0.865565, -0.465149, 0.185608, -0.48113, -0.66947, 0.565981, -0.139016, -0.579186, -0.80326, 23.2764, 4.17212, 9.99829)
+
+[node name="WinBox" type="Area3D" parent="Arch"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arch/WinBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 272.118, -10.7319)
+shape = SubResource("BoxShape3D_w3hjl")
+
+[connection signal="body_shape_entered" from="Arch/WinBox" to="." method="_on_win_box_body_shape_entered"]

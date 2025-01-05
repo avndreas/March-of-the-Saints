@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c602g50xu1bfs"]
+[gd_scene load_steps=6 format=3 uid="uid://c602g50xu1bfs"]
 
 [ext_resource type="Script" path="res://entities/angels/angel.gd" id="1_5juxr"]
 [ext_resource type="PackedScene" uid="uid://dcsjyntllpi41" path="res://entities/angels/Angel.glb" id="1_kvoud"]
+[ext_resource type="AudioStream" uid="uid://mgqobktl3wrb" path="res://audio/slide.ogg" id="3_51pek"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gbtu"]
 emission_enabled = true
@@ -34,5 +35,11 @@ shape = SubResource("BoxShape3D_4nag8")
 [node name="Timer" type="Timer" parent="." index="1"]
 wait_time = 10.0
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_51pek")
+volume_db = 6.503
+max_db = 3.565
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

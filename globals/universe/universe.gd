@@ -11,7 +11,7 @@ extends Node3D
 @onready var game_over = load("res://ui/main menu/GameOver.tscn")
 #@onready var credits = load("res://menus/title/Credits.tscn")
 #@onready var opening_cutscene: = load("res://scenes/opening_cutscene.tscn")
-
+@onready var victory = load("res://levels/victory.tscn")
 @onready var current_level = -1
 @onready var current_scene: Node
 
@@ -46,6 +46,9 @@ func switch_scene(sceneNo: int):
 		4:
 			current_level = 4
 			#get_tree().change_scene_to_packed(game_over)
+		5:
+			current_level = 5
+			get_tree().change_scene_to_packed(victory)
 
 #func start_timer(seconds: float):
 	#timer_component.start(seconds)

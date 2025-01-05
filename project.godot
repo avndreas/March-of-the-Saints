@@ -22,6 +22,7 @@ Universe="*res://globals/universe/universe.tscn"
 [file_customization]
 
 folder_colors={
+"res://audio/": "teal",
 "res://entities/": "red",
 "res://entities/angels/": "red",
 "res://entities/arch/": "gray",
