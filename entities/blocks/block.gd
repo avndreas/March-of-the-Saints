@@ -30,5 +30,5 @@ func _on_rigid_body_3d_body_shape_entered(body_rid: RID, body: Node, body_shape_
 		body.death()
 	elif body.name.match("Floor"):
 		audioPlayer.play()
-		await get_tree().create_timer(2.5).timeout 
+		await get_tree().create_timer(2.0).timeout 
 		queue_free() 

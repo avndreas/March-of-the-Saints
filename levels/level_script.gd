@@ -20,7 +20,7 @@ func _ready() -> void:
 	player.global_position = checkpoint
 	print("Translated player to: ", checkpoint)
 	add_child(audioPlayer)
-	audioPlayer.volume_db = 1.0
+	audioPlayer.volume_db = -15.0
 	audioPlayer.set_stream(MarchOfTheSaints)
 	#audioPlayer.play()
 	
@@ -45,13 +45,13 @@ func _process(delta: float) -> void:
 		current_level = 0
 		#print("current level: 0")
 		checkpoint = Vector3(0.0, 0.5, 0.0)
-	elif position.z > -1300: # simple blocks + angels
+	elif position.z > -1500: # simple blocks + angels
 		current_level = 1
 		checkpoint = Vector3(0.0, 0.5, -550.0)
 		#print("current level: 1")
 	elif position.z > -2315: # advanced blocks + angels
 		current_level = 2
-		checkpoint = Vector3(0.0, 0.5, -1300.0)
+		checkpoint = Vector3(0.0, 0.5, -1500.0)
 		#print("current level: 2")
 	elif position.z > -3380: # scripted blocks + more angels
 		current_level = 3
@@ -78,6 +78,7 @@ func get_current_level() -> int:
 
 func get_checkpoint() -> Vector3:
 	return checkpoint
+
 
 
 func _on_win_box_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:

@@ -18602,7 +18602,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3366.58)
 curve = SubResource("Curve3D_mhpvy")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path1"]
-transform = Transform3D(0.0508024, 0.627833, -0.776571, 0, 0.777569, 0.62865, 0.998609, -0.0319399, 0.0395066, 25.0405, 989.978, 8.82007)
+transform = Transform3D(0.0508024, 0.627833, -0.776571, 2.97994e-08, 0.777569, 0.62865, 0.998609, -0.0319399, 0.0395066, 25.0405, 989.978, 8.82007)
 
 [node name="Arthur" parent="Arch/Path1/PathFollow3D" instance=ExtResource("8_grxnf")]
 transform = Transform3D(0.0914772, -0.113761, 0.989293, -0.627656, -0.777862, -0.0314109, 0.773103, -0.618059, -0.142559, -1.42798, 242.559, 192.633)
@@ -18611,7 +18611,7 @@ transform = Transform3D(0.0914772, -0.113761, 0.989293, -0.627656, -0.777862, -0
 curve = SubResource("Curve3D_fwwas")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path2"]
-transform = Transform3D(-0.581328, -0.216664, -0.784241, 7.44985e-09, 0.963882, -0.266293, 0.813548, -0.154819, -0.560386, 361.477, 919.187, 27.7197)
+transform = Transform3D(-0.581328, -0.216664, -0.784241, 1.48997e-08, 0.963882, -0.266293, 0.813548, -0.154819, -0.560386, 361.477, 919.187, 27.7197)
 
 [node name="Arthur2" parent="Arch/Path2/PathFollow3D" instance=ExtResource("8_grxnf")]
 transform = Transform3D(-0.0543782, -0.0313953, 0.998027, 0.5, -0.866025, 0, 0.864317, 0.499013, 0.0627905, -110.131, 280.813, -25.197)
@@ -18620,7 +18620,7 @@ transform = Transform3D(-0.0543782, -0.0313953, 0.998027, 0.5, -0.866025, 0, 0.8
 curve = SubResource("Curve3D_fn4ll")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path3"]
-transform = Transform3D(-0.87338, 0.0878721, -0.479041, 0.271068, 0.904866, -0.328223, 0.404628, -0.416517, -0.814114, 544.503, 705.807, 16.8206)
+transform = Transform3D(-0.883549, 0.0921417, -0.459179, 0.263981, 0.907841, -0.325776, 0.386846, -0.409054, -0.826449, 544.503, 705.807, 16.8184)
 progress = 6233.13
 
 [node name="Arthur3" parent="Arch/Path3/PathFollow3D" instance=ExtResource("8_grxnf")]
@@ -18639,7 +18639,7 @@ transform = Transform3D(-0.626812, 0.779163, 0.00398098, -0.711577, -0.570342, -
 curve = SubResource("Curve3D_uqqhx")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Arch/Path5"]
-transform = Transform3D(-0.98182, 0.0674641, -0.176854, 0, 0.934313, 0.356411, 0.189268, 0.349967, -0.917423, -451.019, 1181.02, -61.8838)
+transform = Transform3D(-0.98182, 0.0674642, -0.176853, 0, 0.934312, 0.356412, 0.189267, 0.349969, -0.917423, -451.019, 1181.02, -61.8838)
 
 [node name="Arthur5" parent="Arch/Path5/PathFollow3D" instance=ExtResource("8_grxnf")]
 transform = Transform3D(0.865565, -0.465149, 0.185608, -0.48113, -0.66947, 0.565981, -0.139016, -0.579186, -0.80326, 23.2764, 4.17212, 9.99829)

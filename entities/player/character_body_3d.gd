@@ -22,7 +22,7 @@ func _ready() -> void:
 	bible.visible = false
 	faith = MAX_FAITH
 	add_child(audioPlayer)
-	audioPlayer.volume_db = 1.0
+	audioPlayer.volume_db = -15.0
 	audioPlayer.set_stream(breathingAudio)
 
 
@@ -33,14 +33,25 @@ func _process(delta: float) -> void:
 		Universe.switch_scene(1)
 	if Input.is_action_pressed("look_bible"):
 		bible.visible = true
-		if faith + 3.3 <= MAX_FAITH:
-			faith += 3.3
-	elif faith - 0.33 >= 0:
-		faith -= 0.33
+		if faith + (555.5 * delta) <= MAX_FAITH:
+			faith += (555.5 * delta)
+	elif faith - (55.5 * delta) >= 0:
+		faith -= (55.5 * delta)
 	
 	if Input.is_action_just_released("look_bible"):
 		bible.visible = false
-	
+	if Input.is_action_just_pressed("Debug 1"):
+		global_position = Vector3(0.0, 0.5, 0.0)
+		set_level(1)
+	if Input.is_action_just_pressed("Debug 2"):
+		global_position = Vector3(0.0, 0.5, -550.0)
+		set_level(2)
+	if Input.is_action_just_pressed("Debug 3"):
+		global_position = Vector3(0.0, 0.5, -1500.0)
+		set_level(3)
+	if Input.is_action_just_pressed("Debug 4"):
+		global_position = Vector3(0.0, 0.5, -2300.0)
+		set_level(4)
 
 	
 	

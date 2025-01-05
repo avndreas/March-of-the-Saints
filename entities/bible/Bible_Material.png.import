@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://boepjvgm7kjiv"
 path.s3tc="res://.godot/imported/Bible_Material.png-eac0e5db2f2a2c9dec815873e5c2f741.s3tc.ctex"
+path.etc2="res://.godot/imported/Bible_Material.png-eac0e5db2f2a2c9dec815873e5c2f741.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://entities/bible/Bible_Material.png"
-dest_files=["res://.godot/imported/Bible_Material.png-eac0e5db2f2a2c9dec815873e5c2f741.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bible_Material.png-eac0e5db2f2a2c9dec815873e5c2f741.s3tc.ctex", "res://.godot/imported/Bible_Material.png-eac0e5db2f2a2c9dec815873e5c2f741.etc2.ctex"]
 
 [params]
 

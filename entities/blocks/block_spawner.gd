@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			current_pool = blocks_1
 		elif current_level == 2:
 			enableBlocks = true
-			spawn_timer.start(1.5)
+			spawn_timer.start(2.5)
 			current_pool = blocks_2
 		elif current_level == 3:
 			enableBlocks = true
