@@ -1,17 +1,17 @@
 extends CharacterBody3D
 
-@onready var player: Node3D = $".."
 @onready var bible: Node3D = $Bible
 @onready var directional_light_3d: DirectionalLight3D = $"../DirectionalLight3D"
 @onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
 @onready var faith : float
+@onready var test_level: Node3D = $".."
 
-const SPEED = 8.0
-const SPRINT = 16.0
+const SPEED = 10.0
+const SPRINT = 25.0
 const JUMP_VELOCITY = 16
 const MAX_FAITH = 777.77
 
-
+var current_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +30,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_released("look_bible"):
 		bible.visible = false
+	
+
 	
 	
 
@@ -68,3 +70,15 @@ func get_faith() -> int:
 
 func get_max_faith() -> int:
 	return MAX_FAITH
+
+func get_level() -> int:
+	return current_level
+
+func set_level(level: int) -> void:
+	current_level = level
+	
+func death() -> void:
+	global_position = Vector3(0.0, 8000.0, 0.0)
+	await get_tree().create_timer(3).timeout
+	faith = MAX_FAITH
+	global_position = test_level.get_checkpoint()

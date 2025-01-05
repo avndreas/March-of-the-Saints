@@ -45,7 +45,7 @@ func switch_scene(sceneNo: int):
 			#get_tree().change_scene_to_packed(credits)
 		4:
 			current_level = 4
-			get_tree().change_scene_to_packed(game_over)
+			#get_tree().change_scene_to_packed(game_over)
 
 #func start_timer(seconds: float):
 	#timer_component.start(seconds)

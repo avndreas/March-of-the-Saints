@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnsji3cy1eca1"]
+
+[ext_resource type="Script" path="res://entities/blocks/arthur/arthur_scripted.gd" id="1_fl48m"]
+[ext_resource type="PackedScene" uid="uid://dxykytejed2fy" path="res://entities/blocks/arthur/Sword.glb" id="2_rrilq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7s63j"]
+size = Vector3(23.415, 330.716, 3.045)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hs1m"]
+size = Vector3(88.08, 17.9, 13.315)
+
+[node name="ArthurScripted" type="Node3D"]
+script = ExtResource("1_fl48m")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Sword2" parent="Area3D" instance=ExtResource("2_rrilq")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 165.358, 0)
+shape = SubResource("BoxShape3D_7s63j")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 258.465, 0)
+shape = SubResource("BoxShape3D_0hs1m")
+
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

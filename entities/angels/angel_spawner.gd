@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var angel = preload("res://entities/angels/angel.tscn")
 @onready var player: CharacterBody3D = $"../Player"
+@onready var test_level: Node3D = $".."
+@onready var timer: Timer = $Timer
 
 @export var direction : bool
 @export var zMin : int = 10
@@ -18,11 +20,18 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	var rng = RandomNumberGenerator.new()
-	var angelInstance = angel.instantiate()
-	var playerPos = player.global_position
+	if test_level.get_current_level() >= 1:
+		if test_level.get_current_level() >= 3:
+			timer.start(2.5)
+		var rng = RandomNumberGenerator.new()
+		var angelInstance = angel.instantiate()
+		var playerPos = player.global_position
 
-	var randZ = rng.randi_range(playerPos.z + zMin, playerPos.z - zMax)
-	angelInstance.translate(Vector3(0.0, 0.0, randZ))
-	angelInstance.rotate(Vector3(0.0, 1.0, 0.0), PI * int(direction))
-	get_node("Angels").add_child(angelInstance)
+		var randZ = rng.randi_range(playerPos.z + zMin, playerPos.z - zMax)
+		angelInstance.translate(Vector3(0.0, 0.0, randZ))
+		angelInstance.rotate(Vector3(0.0, 1.0, 0.0), PI * int(direction))
+		get_node("Angels").add_child(angelInstance)
+		print(timer.time_left)
+	else:
+		pass
+	
