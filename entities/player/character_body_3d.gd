@@ -29,6 +29,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("escape"):
+		Universe.switch_scene(1)
 	if Input.is_action_pressed("look_bible"):
 		bible.visible = true
 		if faith + 3.3 <= MAX_FAITH:

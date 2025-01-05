@@ -13,7 +13,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_mi82w")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,32 +22,29 @@ offset_top = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 29
 text = "What's Above"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="Play" type="Button" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="Credits" type="Button" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
+[node name="Quit" type="Button" parent="CenterContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

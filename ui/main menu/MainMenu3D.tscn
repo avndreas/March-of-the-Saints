@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://da1mejh6fh2m2"]
+
+[ext_resource type="Script" path="res://ui/main menu/main_menu.gd" id="1_li13a"]
+[ext_resource type="PackedScene" uid="uid://jy7jx2xayf14" path="res://ui/main menu/MainMenu.tscn" id="1_mruum"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h3rwq"]
+sky_top_color = Color(0.324974, 0.578863, 0.882004, 1)
+sky_horizon_color = Color(0.965027, 0.98656, 0.999282, 1)
+
+[sub_resource type="Sky" id="Sky_qyxe1"]
+sky_material = SubResource("ProceduralSkyMaterial_h3rwq")
+
+[sub_resource type="Environment" id="Environment_kjb5h"]
+background_mode = 2
+sky = SubResource("Sky_qyxe1")
+
+[node name="MainMenu3d" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="MainMenu" parent="Camera3D/CanvasLayer" instance=ExtResource("1_mruum")]
+script = ExtResource("1_li13a")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kjb5h")

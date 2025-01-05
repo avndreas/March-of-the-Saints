@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwnnkykxokpd6"]
+
+[ext_resource type="PackedScene" uid="uid://jy7jx2xayf14" path="res://ui/main menu/MainMenu.tscn" id="2_cnyu2"]
+[ext_resource type="Script" path="res://ui/main menu/main_menu.gd" id="2_vr1yw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kyrjf"]
+
+[sub_resource type="Sky" id="Sky_kqdkp"]
+sky_material = SubResource("ProceduralSkyMaterial_kyrjf")
+
+[sub_resource type="Environment" id="Environment_gsc5b"]
+background_mode = 2
+background_energy_multiplier = 2.68
+sky = SubResource("Sky_kqdkp")
+sky_rotation = Vector3(-0.839503, 0, 0)
+
+[node name="3dMenuScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.406, 8.927)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="MainMenu" parent="Camera3D/CanvasLayer" instance=ExtResource("2_cnyu2")]
+script = ExtResource("2_vr1yw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gsc5b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.893701, 0.393194, -0.216097, -0.448664, 0.783208, -0.430448, 0, 0.481647, 0.876366, 0, 88.4722, 0)

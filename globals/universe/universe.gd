@@ -5,7 +5,7 @@ extends Node3D
 
 @onready var this_scene = load("res://scenes/universe/universe.tscn")
 #@onready var main_menu_scene = load("res://menus/title/MainMenu.tscn")
-@onready var main_menu_scene = load("res://ui/main menu/MainMenu.tscn")
+@onready var main_menu_scene = load("res://ui/main menu/3DMenuScene.tscn")
 @onready var level_one = load("res://scenes/overworld/main_level.tscn")
 @onready var test_level = load("res://levels/test level.tscn")
 @onready var game_over = load("res://ui/main menu/GameOver.tscn")
